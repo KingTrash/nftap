@@ -6,6 +6,7 @@ import React, {useMemo, useState} from "react";
 import { UserContext } from "./UserContext";
 import {Provider} from "react-redux";
 import Home from "./Home";
+import {Image} from "react-konva";
 
 function App() {
     const [user, setUser] = useState(null);
@@ -19,7 +20,6 @@ function App() {
           <div>
               <Nftap/>
           </div>
-
         </Router>
           </div>
 </UserContext.Provider>

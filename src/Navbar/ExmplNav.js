@@ -24,6 +24,7 @@ export default function Nftap () {
             <div className={"darken"}>
             <Segment inverted>
                 <Menu inverted pointing secondary>
+
                     <Menu.Item>
                         {check ? (<Button inverted color={"teal"}
                                 icon={"angle double left"}
@@ -62,6 +63,10 @@ export default function Nftap () {
                             }}
                         as={Link} to={'/rank'}
                     />
+
+                    <Menu.Item className={"right"}>
+                        <Image style={{height: 125, marginRight: 150}} src={"https://raw.githubusercontent.com/KingTrash/NFT-images/main/logo.png"}/>
+                    </Menu.Item>
                     <Menu.Item className="right">
                         <DropdownUser/>
                     </Menu.Item>

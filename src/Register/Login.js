@@ -4,8 +4,6 @@ import axios from "axios";
 import { UserContext } from "../UserContext";
 import {Link, useNavigate} from "react-router-dom";
 import {render} from "@testing-library/react";
-
-
 export default function Login(){
     const {user, setUser} = useContext(UserContext)
     const [username, setUsername] = useState()
@@ -42,7 +40,7 @@ export default function Login(){
         {!user ? (
                 <div className="column">
                     <h2 className="ui teal image header">
-                        <img src="assets/images/logo.png" className="image"/>
+                        <img src={"https://raw.githubusercontent.com/KingTrash/NFT-images/main/logo.png"} className="image"/>
                         <div className="content">
                             Log-in to your account
                         </div>

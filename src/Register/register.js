@@ -39,7 +39,7 @@ export default function Register () {
             <div className="ui middle aligned center aligned grid">
                 <div className="column">
                     <h2 className="ui teal image header">
-                        <img src="assets/images/logo.png" className="image"/>
+                        <img src={"https://raw.githubusercontent.com/KingTrash/NFT-images/main/logo.png"} className="image"/>
                         <div className="content">
                             Create a new account
                         </div>
