@@ -1,25 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import Nftap from "./Navbar/ExmplNav";
+
+import {BrowserRouter as Router} from "react-router-dom";
+import React, {useMemo, useState} from "react";
+import { UserContext } from "./UserContext";
+import {Provider} from "react-redux";
+import Home from "./Home";
 
 function App() {
+    const [user, setUser] = useState(null);
+    const value = useMemo(() => ({ user, setUser }), [user, setUser]);
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+      <UserContext.Provider value={value}>
+          <div className={"ui inverted"}>
+      <Router>
+          <div>
+              <Nftap/>
+          </div>
+
+        </Router>
+          </div>
+</UserContext.Provider>
+
+);
 }
 
 export default App;

@@ -6,16 +6,37 @@
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
+    "concurrently": "^7.0.0",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.0.0",
+    "electron": "^17.2.0",
+    "express": "^4.17.3",
+    "konva": "^8.3.7",
+    "leaflet-draw": "^1.0.4",
+    "mongodb": "^4.4.1",
     "react": "^17.0.2",
+    "react-custom-scrollbars": "^4.2.1",
     "react-dom": "^17.0.2",
+    "react-konva": "^18.1.0",
+    "react-leaflet": "^4.0.0",
+    "react-leaflet-draw": "^0.19.8",
+    "react-redux": "^8.0.1",
+    "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.0",
+    "redux": "^4.2.0",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^2.1.2",
+    "wait-on": "^6.0.1",
     "web-vitals": "^2.1.4"
   },
+  "main": "./src/main.js",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "rstart": "concurrently \"SET BROWSER=none&&npm run start\" \"wait-on http://localhost:3000 && electron .\""
   },
   "eslintConfig": {
     "extends": [
@@ -34,5 +55,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "axios": "^0.26.1"
   }
 }
