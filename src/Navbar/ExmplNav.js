@@ -12,6 +12,7 @@ import Game from "../Game/game";
 import MyNftColl from "./Navbar.Item.NFTColl/MyNftColl";
 import {UserContext} from "../UserContext";
 import Home from "../Home";
+import CoinFlip from "../Casino/CoinFlip";
 
 export default function Nftap () {
     const [activeItem, setActiveItem] = useState("home")
@@ -140,6 +141,10 @@ export default function Nftap () {
 
                             <Route path="/MyNfts"
                                    element={<MyNftColl/>}>
+                            </Route>
+
+                            <Route path="/CoinFlip"
+                                   element={<CoinFlip/>}>
                             </Route>
 
                         </Routes>
