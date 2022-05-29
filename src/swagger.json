@@ -1,0 +1,342 @@
+{
+  "openapi" : "3.0.0",
+  "x-stoplight" : {
+    "id" : "5h71j2qkdt3wj"
+  },
+  "info" : {
+    "title" : "NFtap-Api-doc",
+    "version" : "1.0",
+    "description" : "",
+    "summary" : "A simple documentation of NFTap"
+  },
+  "servers" : [ {
+    "url" : "https://nftap-server.herokuapp.com/"
+  } ],
+  "paths" : {
+    "/users" : {
+      "parameters" : [ ],
+      "get" : {
+        "summary" : "Get User Info by User ID",
+        "tags" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Users Found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/userModel"
+                },
+                "examples" : {
+                  "Get User Alice Smith" : {
+                    "value" : {
+                      "_id" : 142,
+                      "username" : "Alice",
+                      "password" : "al_pw_1234",
+                      "email" : "alice.smith@gmail.com",
+                      "balance" : "3431",
+                      "myNfts" : [ {
+                        "nftRank" : "C",
+                        "nftName" : "ape",
+                        "nftValue" : 300
+                      } ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "User Not Found"
+          }
+        },
+        "operationId" : "get-users-userId",
+        "description" : "Retrieve the information of all users.\nThis GET-request is sorted by balance."
+      }
+    },
+    "/users/add" : {
+      "post" : {
+        "summary" : "Create New User",
+        "operationId" : "post-user",
+        "description" : "Create a new user.",
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "User added"
+          }
+        },
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "username" : {
+                    "type" : "string"
+                  },
+                  "password" : {
+                    "type" : "string"
+                  },
+                  "email" : {
+                    "type" : "string"
+                  },
+                  "balance" : {
+                    "type" : "integer"
+                  },
+                  "myNfts" : {
+                    "type" : "object",
+                    "properties" : {
+                      "nftRank" : {
+                        "type" : "string"
+                      },
+                      "nftName" : {
+                        "type" : "string"
+                      },
+                      "nftValue" : {
+                        "type" : "integer"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters" : [ ]
+    },
+    "/users/addBalance/:id" : {
+      "parameters" : [ ],
+      "put" : {
+        "summary" : "Updates User balance",
+        "tags" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Users balance has been updated!"
+          }
+        },
+        "operationId" : "get-users-addBalance-userid",
+        "description" : "If a NFT is sold, updadates the current balance. ",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "balance" : {
+                    "type" : "integer"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/addNFT/:id" : {
+      "put" : {
+        "summary" : "Adds NFT to user",
+        "tags" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "NFT has been added!"
+          }
+        },
+        "operationId" : "get-users-addNFT-:id",
+        "description" : "Adds a NFT to the user. ",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "myNfts" : {
+                    "type" : "object",
+                    "properties" : {
+                      "nftRank" : {
+                        "type" : "string"
+                      },
+                      "nftName" : {
+                        "type" : "string"
+                      },
+                      "nftValue" : {
+                        "type" : "integer"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "description" : ""
+        }
+      }
+    },
+    "/users/rmNFT/:id" : {
+      "put" : {
+        "summary" : "Removes NFT from user",
+        "tags" : [ ],
+        "responses" : { },
+        "operationId" : "get-users-rmNFT-:id",
+        "description" : "Removes the NFT from the user if sold. ",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "myNfts" : {
+                    "type" : "object",
+                    "properties" : {
+                      "nftRank" : {
+                        "type" : "string"
+                      },
+                      "nftName" : {
+                        "type" : "string"
+                      },
+                      "nftValue" : {
+                        "type" : "integer"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/nftColl/get" : {
+      "get" : {
+        "summary" : "Displays all NFTs",
+        "tags" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "ok"
+          }
+        },
+        "operationId" : "get-nftColl-get",
+        "description" : "Displays all currently availible NFTs.\n"
+      }
+    },
+    "/nftColl/add" : {
+      "post" : {
+        "summary" : "Adds a new NFT to the collection",
+        "operationId" : "post-nftColl-add",
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "userModel" : {
+        "title" : "User",
+        "type" : "object",
+        "description" : "",
+        "examples" : {
+          "_id" : "62911eaa867819f0552576fe",
+          "username" : "nikola",
+          "password" : "1234",
+          "email" : "wefw@gmail.com",
+          "balance" : 145,
+          "myNfts" : [ {
+            "nftRank" : "D",
+            "nftName" : "logo_lol",
+            "nftValue" : 12,
+            "_id" : "62933d64d7b9d07ad4be7b16"
+          }, {
+            "nftRank" : "C",
+            "nftName" : "orochimaru",
+            "nftValue" : 860,
+            "_id" : "62933d64d7b9d07ad4be7b17"
+          } ],
+          "createdAt" : "2022-05-27T18:55:38.289Z",
+          "updatedAt" : "2022-05-29T09:31:16.406Z",
+          "__v" : 4
+        },
+        "properties" : {
+          "_id" : {
+            "type" : "integer",
+            "description" : "Auto generated by MongoDB"
+          },
+          "username" : {
+            "type" : "string"
+          },
+          "password" : {
+            "type" : "string"
+          },
+          "email" : {
+            "type" : "string",
+            "format" : "email"
+          },
+          "balance" : {
+            "type" : "integer",
+            "format" : "date",
+            "example" : "1997-10-31"
+          },
+          "myNfts" : {
+            "type" : "array",
+            "description" : "Set to true if the user's email has been verified.",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "nftRank" : {
+                  "type" : "string"
+                },
+                "nftName" : {
+                  "type" : "string"
+                },
+                "nftValue" : {
+                  "type" : [ "string", "integer" ]
+                }
+              }
+            }
+          },
+          "createtAt" : {
+            "type" : "string",
+            "format" : "date",
+            "description" : "Auto generated by MongoDB"
+          },
+          "updatedAt" : {
+            "type" : "string",
+            "description" : "Auto generated by MongoDB",
+            "format" : "date"
+          }
+        },
+        "required" : [ "_id", "username", "password", "email", "myNfts" ]
+      },
+      "nftCollModel" : {
+        "title" : "nftCollModel",
+        "x-stoplight" : {
+          "id" : "gynpskgms11lo"
+        },
+        "type" : "object",
+        "examples" : [ {
+          "_id" : "string",
+          "rank" : "string",
+          "name" : "string",
+          "value" : "string"
+        } ],
+        "properties" : {
+          "_id" : {
+            "type" : "string",
+            "description" : "Auto generated by MongoDB"
+          },
+          "rank" : {
+            "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "value" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "securitySchemes" : { }
+  }
+}
