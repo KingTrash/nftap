@@ -18,7 +18,7 @@ body {
   background: var(--dark);
   font-family: "Montserrat", sans-serif;
   height: 100%;
-  overflow-y: hidden;
+  overflow-y: scroll;
 }
 
 main {
@@ -27,7 +27,7 @@ main {
   flex-direction: column;
   padding: 2rem;
   align-items: center;
-  overflow-y: hidden;
+  overflow-y: scroll;
 }
 
 h1 {
@@ -108,7 +108,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow-y: hidden;
+  overflow-y: scroll;
 }
 
 .modal {
@@ -215,11 +215,9 @@ ul {
   flex-direction: column;
   justify-content: flex-end;
 }
-
 .bottom {
   justify-content: flex-end;
 }
-
 .top {
   justify-content: flex-start;
 }

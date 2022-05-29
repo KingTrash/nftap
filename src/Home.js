@@ -1,6 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import {Button, Divider, Icon} from "semantic-ui-react";
+import {Button, Divider, Icon, List} from "semantic-ui-react";
+import {Scrollbars} from "react-custom-scrollbars";
 
 
 export default function Home(){
@@ -8,7 +9,7 @@ export default function Home(){
 
     return(
         <div className={"pusher"}>
-        <div className={"ui inverted vertical masthead center aligned segment"}>
+            <div className={"ui inverted vertical masthead center aligned segment"}>
             <div className={"ui text container"}>
                 <h1 className={"ui inverted header teal"}>NFTap</h1>
                 <h2>A Website made for memer from memer</h2>
@@ -23,13 +24,13 @@ export default function Home(){
                             <p>This little Website provides a couple of <Link to={"/nfts"}>NFts</Link> that can be screenshotted.
                             It's a fun game for those who love to troll NFT owner just by screenshotting their NFTS</p>
                             <h3 className="ui huge header">This Website includes</h3>
-                            <ul>
-                                <li>A User integretion</li>
-                                <li>User can select and screenshot NFTs</li>
-                                <li>Collecting NFTs and selling them will add up to your current balance</li>
-                                <li>Balance can be seen in the <Link to={"/rank"}>Ranking</Link> tab</li>
-                                <li>The casino can help boost your money or lose it all</li>
-                            </ul>
+                            <List>
+                                <List.Item>A User integretion</List.Item>
+                                <List.Item>User can select and screenshot NFTs</List.Item>
+                                <List.Item>Collecting NFTs and selling them will add up to your current balance</List.Item>
+                                <List.Item>Balance can be seen in the <Link to={"/rank"}>Ranking</Link> tab</List.Item>
+                                <List.Item>The casino can help boost your money or lose it all</List.Item>
+                            </List>
                         </div>
                         <div className="six wide right floated column">
                             <img src="https://i.kym-cdn.com/photos/images/original/002/233/526/b86.png"
@@ -41,8 +42,6 @@ export default function Home(){
                     </div>
                 </div>
             </div>
-
-
             <div className="ui vertical stripe quote segment">
                 <div className="ui equal width stackable internally celled grid">
                     <div className="center aligned row">

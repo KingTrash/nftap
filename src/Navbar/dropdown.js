@@ -35,6 +35,12 @@ export default function USerDoprdown (){
                         }/>
                             </Dropdown.Item>
                     </Link>
+
+                        <Link  to="/api-doc">
+                            <Dropdown.Item>
+                                <Button tag={"Link"} className={"ui button"} icon={"paper plane"} content={"Api-Doc"}/>
+                            </Dropdown.Item>
+                        </Link>
             </div>
 </DropdownMenu>
             </Dropdown>
