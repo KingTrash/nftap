@@ -5,6 +5,7 @@ import {Scrollbars} from "react-custom-scrollbars";
 import Canvas, {koords, isScreening} from "./Canvas";
 import {UserContext} from "../UserContext";
 import {Link} from "react-router-dom";
+import {motion} from "framer-motion";
 
 
 export let resetCanvas = false
@@ -14,9 +15,6 @@ export default function Game () {
     const {user, setUser} = useContext(UserContext)
 
     useEffect(() => {
-
-         //   axios.post('http://localhost:5000/users/addNFT/' + user._id, )
-           //     .then(res => console.log(res.data))
 
 
         console.log(koords)
@@ -210,7 +208,7 @@ export default function Game () {
                                         ):(<></>)}
                                 </div>
                     </div>
-                         <Button fluid  inverted color={"teal"} onClick={checkArea} content={"save"} style={{marginTop: 5}}/>
+                         <Button fluid whileHover={{scale:1.1}} inverted color={"teal"} onClick={checkArea} content={"save"} style={{marginTop: 5}}/>
                         {savePressed ? ( <Modal
                             basic
                             onClose={() => setOpen(false)}
@@ -223,7 +221,7 @@ export default function Game () {
                                     <h1>{selectedNft.name} collected!</h1>
                                 </div>
                                 <div className={"center"}>
-                                <Image styles={{height:200}}
+                                <Image className={"scaleImage"}
                                        src={"https://github.com/KingTrash/NFT-images/blob/main/" + selectedNft.name + ".png?raw=true"}
                                 />
                                 </div>

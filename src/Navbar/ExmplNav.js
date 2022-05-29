@@ -1,4 +1,4 @@
-import React, {Component, useContext, useState} from 'react'
+import React, {Component, useContext, useEffect, useState} from 'react'
 import {Button, Grid, Header, Icon, Image, Menu, Segment, Sidebar} from 'semantic-ui-react'
 import DropdownUser from "./dropdown";
 import {Link, Route, Routes} from "react-router-dom";
@@ -13,6 +13,7 @@ import MyNftColl from "./Navbar.Item.NFTColl/MyNftColl";
 import {UserContext} from "../UserContext";
 import Home from "../Home";
 import CoinFlip from "../Casino/CoinFlip";
+import ApiDoc from "../ApiDoc";
 
 export default function Nftap () {
     const [activeItem, setActiveItem] = useState("home")
@@ -94,19 +95,26 @@ export default function Nftap () {
                     {user ? ( <Link to={"/game"}>
                         <Menu.Item as='a'>
                             <Icon name='gamepad'/>
-                            Games
+                            NFTap
                         </Menu.Item>
                     </Link>) : ( <Link to={"/login"}>
                         <Menu.Item as='a'>
                             <Icon name='gamepad'/>
-                            Games
+                            NFTap
+                        </Menu.Item>
+                    </Link>)}
+                    {user ? (                    <Link to={"/CoinFlip"}>
+                        <Menu.Item as='a'>
+                            <Icon name='camera'/>
+                            Casino
+                        </Menu.Item>
+                    </Link>):(                    <Link to={"/login"}>
+                        <Menu.Item as='a'>
+                            <Icon name='camera'/>
+                            Casino
                         </Menu.Item>
                     </Link>)}
 
-                    <Menu.Item as='a'>
-                        <Icon name='camera'/>
-                        Channels
-                    </Menu.Item>
                 </Sidebar>
 
                 <Sidebar.Pusher dimmed={check}>
@@ -145,6 +153,9 @@ export default function Nftap () {
 
                             <Route path="/CoinFlip"
                                    element={<CoinFlip/>}>
+                            </Route>
+                            <Route path="/api-doc"
+                                   element={<ApiDoc/>}>
                             </Route>
 
                         </Routes>

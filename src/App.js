@@ -2,7 +2,7 @@ import './App.css';
 import Nftap from "./Navbar/ExmplNav";
 
 import {BrowserRouter as Router} from "react-router-dom";
-import React, {useMemo, useState} from "react";
+import React, {useEffect, useMemo, useState} from "react";
 import { UserContext } from "./UserContext";
 import {Provider} from "react-redux";
 import Home from "./Home";
