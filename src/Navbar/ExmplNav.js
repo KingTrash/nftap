@@ -99,18 +99,18 @@ export default function Nftap () {
                         </Menu.Item>
                     </Link>) : ( <Link to={"/login"}>
                         <Menu.Item as='a'>
-                            <Icon name='gamepad'/>
+                            <Icon name='edit'/>
                             NFTap
                         </Menu.Item>
                     </Link>)}
                     {user ? (                    <Link to={"/CoinFlip"}>
                         <Menu.Item as='a'>
-                            <Icon name='camera'/>
+                            <Icon name='gem'/>
                             Casino
                         </Menu.Item>
                     </Link>):(                    <Link to={"/login"}>
                         <Menu.Item as='a'>
-                            <Icon name='camera'/>
+                            <Icon name='gem'/>
                             Casino
                         </Menu.Item>
                     </Link>)}

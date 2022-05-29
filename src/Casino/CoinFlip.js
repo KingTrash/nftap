@@ -82,7 +82,9 @@ export default function CoinFlip(){
 
 
     return (
-        <div>
+        <img src={"https://github.com/KingTrash/NFT-images/blob/main/still-working.png?raw=true"}></img>
+        /*
+          <div>
             <Grid columns={2}>
                 <Grid.Column>
                     <Input placeholder={"Amount"}  onChange={(event) => {
@@ -120,6 +122,9 @@ export default function CoinFlip(){
             {win ? (<h1>YOU WON</h1>) : (<h1>MAYBE NEXT TIME</h1>)}
 
         </div>
+
+         */
+
     )
 
 }
