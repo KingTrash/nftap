@@ -236,7 +236,7 @@ export default function Game () {
                                         <Icon name='save' /> Inventory
                                     </Button>
                                     <Button  basic color='red' inverted onClick={sellNft}>
-                                        <Icon name='save' /> SELL
+                                        <Icon name='dollar sign' /> SELL
                                     </Button>
                                 </div>
                             </Modal.Actions>

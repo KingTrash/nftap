@@ -1,17 +1,13 @@
-import React, {useCallback, useContext, useEffect, useRef, useState} from "react";
-import {Button, Divider, Dropdown, Grid, GridColumn, Input, Select} from "semantic-ui-react";
-import {Selector} from "react-redux";
-import {Image} from "react-konva";
+import React, {useContext, useEffect, useState} from "react";
+import {Button, Grid, Input} from "semantic-ui-react";
+
 import axios from "axios";
 import {UserContext} from "../UserContext";
-
+import {queryAllByAttribute} from "@testing-library/react";
 
 
 export default function CoinFlip(){
 
-    const optionCoin = [
-        { key: 'pepe', value: 'pepe', text: 'Pepe' },
-        { key: 'amongus', value: 'amongus', text: 'Amongus' }]
     const [selected,setSelected] = useState("pepe")
 
     const {user, setUser} = useContext(UserContext)
@@ -23,12 +19,27 @@ export default function CoinFlip(){
     const [win, setWin] = useState(false)
     const [disableButton, setDB] = useState(true)
     const [amount, setAmount] = useState(0)
+    const [reload, setReload] = useState(false)
+    const [pepeGif, setPepeGif] = useState("https://github.com/KingTrash/NFT-images/blob/main/coin-pepe.png?raw=true")
+    const [amongusGif, setAmongusGif] = useState("https://github.com/KingTrash/NFT-images/blob/main/coin-amongus.png?raw=true")
+
 
     const sleep = (milliseconds) => {
         return new Promise(resolve => setTimeout(resolve, milliseconds))
     }
     async function flip () {
+        setPepeGif("https://github.com/KingTrash/NFT-images/blob/main/coin-pepe.png?raw=true")
+        setAmongusGif("https://github.com/KingTrash/NFT-images/blob/main/coin-amongus.png?raw=true")
+        setCounter(counter+1)
         console.log(amount)
+        if (reload) {
+            setReload(false)
+        }
+        else if (!reload){
+            setReload(true)
+        }else{
+            setReload(true)
+        }
 
         setDB(true)
         setSG(false)
@@ -55,10 +66,11 @@ export default function CoinFlip(){
             axios.put("https://nftap-server.herokuapp.com/users/addBalance/" + user.id, user)
                 .then(res => console.log(user))
         }
-        console.log(result)
+        console.log(reload)
     }
 
     useEffect(async () => {
+
 
         const ges = user.balance - amount
         if (ges < 0){
@@ -66,13 +78,13 @@ export default function CoinFlip(){
         }
 
         if (result === "amongus"){
-            await sleep(2250)
+            await sleep(2500)
             setSG(true)
             setDB(false)
 
         }
         else if (result === "pepe"){
-            await sleep(1600)
+            await sleep(2500)
             setSG(true)
             setDB(false)
 
@@ -82,8 +94,9 @@ export default function CoinFlip(){
 
 
     return (
-        <img src={"https://github.com/KingTrash/NFT-images/blob/main/still-working.png?raw=true"}></img>
         /*
+        <img src={"https://github.com/KingTrash/NFT-images/blob/main/still-working.png?raw=true"}></img>
+         */
           <div>
             <Grid columns={2}>
                 <Grid.Column>
@@ -109,21 +122,28 @@ export default function CoinFlip(){
 
                 </Grid.Column>
                 <Grid.Column>
-                    {!stopGif ? (
+
                     <div>
-                        {!isPepe ? (<div><img src={"https://github.com/KingTrash/NFT-images/blob/main/coin-" + "pepe" +  ".gif?raw=true"}/></div>
-                    ) : (     <div><img src={"https://github.com/KingTrash/NFT-images/blob/main/coin-" + "amongus" +  ".gif?raw=true"}/></div>
-                    )}
-                    </div>) : (<div>
-                        {!isPepe ? (<img src={"https://github.com/KingTrash/NFT-images/blob/main/pepe-end.png?raw=true"}/>):(<img src={"https://github.com/KingTrash/NFT-images/blob/main/amongus-end.png?raw=true"}/>)}
-                    </div>)}
+                        {!isPepe ? (<div><img
+                                src={"https://github.com/KingTrash/NFT-images/blob/main/coin-" + "pepe" + ".gif?raw=true"}/>
+                            </div>)
+                            : (<div><img
+                                src={"https://github.com/KingTrash/NFT-images/blob/main/coin-" + "amongus" + ".gif?raw=true"}/>
+                            </div>)
+                        }
+                    </div>
                 </Grid.Column>
             </Grid>
-            {win ? (<h1>YOU WON</h1>) : (<h1>MAYBE NEXT TIME</h1>)}
+              {stopGif ? (
+                  <div>
+                  {win ? (<h1>YOU WON</h1>) : (<h1>MAYBE NEXT TIME</h1>)}
+                  </div>
+              ): (<h1></h1>)}
+
 
         </div>
 
-         */
+
 
     )
 
