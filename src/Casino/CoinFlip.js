@@ -12,7 +12,7 @@ export default function CoinFlip(){
 
     const {user, setUser} = useContext(UserContext)
 
-    const [result, setResult] = useState("pepe")
+    const [result, setResult] = useState("")
     const [counter, setCounter] = useState(0)
     const [isPepe, setPepe] = useState(true)
     const [stopGif, setSG] = useState(true)
