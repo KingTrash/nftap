@@ -43,13 +43,24 @@ export default function CoinFlip(){
 
         setDB(true)
         setSG(false)
-        if (Math.random() < 0.5) {
-            setResult("pepe")
-            setPepe(true)
-        } else {
-            setResult("amongus")
-            setPepe(false)
+        if (Math.random() > 0.5){
+            if (Math.random() < 0.5) {
+                setResult("pepe")
+                setPepe(true)
+            } else {
+                setResult("amongus")
+                setPepe(false)
+            }
+        }else{
+            if (Math.random() > 0.5) {
+                setResult("pepe")
+                setPepe(true)
+            } else {
+                setResult("amongus")
+                setPepe(false)
+            }
         }
+
         setCounter(counter+1)
         if (amount > user.balance){
             console.log("error not enough money")
