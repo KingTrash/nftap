@@ -9,11 +9,7 @@ export default function Login(){
     const [username, setUsername] = useState()
     const [password, setPassword] = useState()
 
-
-
-
      async function handleClick(){
-        console.log(username)
         axios.get("https://nftap-server.herokuapp.com/users").then(res =>{
             res.data.forEach((data) =>{
                 if (data.username === username && data.password === password){
@@ -26,7 +22,6 @@ export default function Login(){
                         myNfts: data.myNfts
                     }
                     setUser(userx)
-                    console.log(user)
                 }
             })
         })

@@ -28,14 +28,10 @@ export default function MyNftColl() {
 
          user.balance = user.balance + child.nftValue
          axios.put("https://nftap-server.herokuapp.com/users/addBalance/" + user.id, user)
-             .then(res => console.log(res.data))
+
          //Remove NFT
-
-
          console.log(user.myNfts.splice(key, 1))
-         console.log(user.myNfts)
          axios.put("https://nftap-server.herokuapp.com/users/rmNFT/" + user.id, user)
-             .then(res => console.log(res.data))
      }
     useEffect(()=>{
           user.myNfts.forEach((child, i)=>{

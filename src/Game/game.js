@@ -17,8 +17,6 @@ export default function Game () {
     useEffect(() => {
 
 
-        console.log(koords)
-        console.log(progress)
         function handleKeyDown(e) {
             if (e.keyCode === 46) {
                 setSK(true)
@@ -66,16 +64,13 @@ export default function Game () {
         }
         user.myNfts.push(tempSelected)
         axios.put("https://nftap-server.herokuapp.com/users/addNFT/" + user.id, user)
-            .then(res => console.log(res.data))
     }
 
     async function sellNft() {
-        console.log(user)
         setOpen(false)
         setPro(0)
         user.balance = user.balance + selectedNft.value
         axios.put("https://nftap-server.herokuapp.com/users/addBalance/" + user.id, user)
-            .then(res => console.log(user))
     }
     async function checkArea(){
         resetCanvas = true

@@ -19,10 +19,8 @@ export default function RegisterGift(){
              balance: newBalance
          }
            axios.post("http://localhost:5000/users/addBalance/" + user.id, userx)
-               .then(res => console.log(res.data))
 
      }
-     console.log(user)
 
         return(
 

@@ -10,8 +10,6 @@ export default function Register () {
     const [userL, setUL] = useState([])
 
 
-
-
      function handleSubmit (){
         axios.get("https://nftap-server.herokuapp.com/users").then(res =>{
                     const user = {
@@ -24,13 +22,7 @@ export default function Register () {
                     setUC(false)
                     window.location = '/login'
         }
-
-
-
-
         )
-
-
     }
         return (
             <Grid columns={3}>

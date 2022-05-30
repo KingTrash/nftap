@@ -17,7 +17,6 @@ export default function Canvas (){
 
 
     useEffect(() =>{
-        console.log(resetCanvas)
         const canvas = canvasRef.current
         canvas.width = 255*2;
         canvas.height = 255*2;
@@ -49,7 +48,6 @@ export default function Canvas (){
     };
 
     const finishDrawing = () => {
-        //console.log(resetCanvas)
         if (resetCanvas === true){
             koords = {
                 x1:0,
