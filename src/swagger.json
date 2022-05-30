@@ -218,18 +218,58 @@
         "description" : "Displays all currently availible NFTs.\n"
       }
     },
-    "/nftColl/add" : {
-      "post" : {
-        "summary" : "Adds a new NFT to the collection",
-        "operationId" : "post-nftColl-add",
-        "responses" : {
-          "200" : {
-            "description" : "OK"
+    "/nftColl/add": {
+      "post": {
+        "summary": "Adds a new NFt to the collection",
+        "operationId": "post-nftColl-add",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "nftRank": {
+                      "type": "string"
+                    },
+                    "nftName": {
+                      "type": "string"
+                    },
+                    "nftValue": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
           }
+        },
+        "description": "Adds a new NFt to the collection",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "nftRank": {
+                    "type": "string"
+                  },
+                  "nftName": {
+                    "type": "string"
+                  },
+                  "nftValue": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          },
+          "description": ""
         }
       }
     }
-  },
+},
   "components" : {
     "schemas" : {
       "userModel" : {

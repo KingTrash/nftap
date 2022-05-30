@@ -124,16 +124,28 @@ export default function CoinFlip(){
 
                 </Grid.Column>
                 <Grid.Column>
+                    {!reload ? (
+                        <div>
+                            {!isPepe ? (<div><img
+                                    src={"https://github.com/KingTrash/NFT-images/blob/main/coin-" + "pepe" + ".gif?raw=true"}/>
+                                </div>)
+                                : (<div><img
+                                    src={"https://github.com/KingTrash/NFT-images/blob/main/coin-" + "amongus" + ".gif?raw=true"}/>
+                                </div>)
+                            }
+                        </div>
+                    ):(
+                        <div>
+                            {isPepe ? (<div><img
+                                    src={"https://github.com/KingTrash/NFT-images/blob/main/coin-" + "amongus" + ".gif?raw=true"}/>
+                                </div>)
+                                : (<div><img
+                                    src={"https://github.com/KingTrash/NFT-images/blob/main/coin-" + "pepe" + ".gif?raw=true"}/>
+                                </div>)
+                            }
+                        </div>
+                    )}
 
-                    <div>
-                        {!isPepe ? (<div><img
-                                src={"https://github.com/KingTrash/NFT-images/blob/main/coin-" + "pepe" + ".gif?raw=true"}/>
-                            </div>)
-                            : (<div><img
-                                src={"https://github.com/KingTrash/NFT-images/blob/main/coin-" + "amongus" + ".gif?raw=true"}/>
-                            </div>)
-                        }
-                    </div>
                 </Grid.Column>
             </Grid>
               {stopGif ? (
