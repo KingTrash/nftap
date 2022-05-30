@@ -253,13 +253,13 @@
                 "type": "object",
                 "properties": {
                   "nftRank": {
-                    "type": "string"
+                    "type": "S"
                   },
                   "nftName": {
-                    "type": "string"
+                    "type": "orochimaru"
                   },
                   "nftValue": {
-                    "type": "integer"
+                    "type": 120
                   }
                 }
               }
