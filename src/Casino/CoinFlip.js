@@ -56,7 +56,7 @@ export default function CoinFlip(){
         }else{
             if (selected === result){
                 setWin(true)
-                user.balance = user.balance +  (amount * 2)
+                user.balance = user.balance +  (amount + amount)
             }else{
 
                 setWin(false)
