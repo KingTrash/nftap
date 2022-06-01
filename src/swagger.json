@@ -319,7 +319,7 @@
           },
           "myNfts" : {
             "type" : "array",
-            "description" : "Set to true if the user's email has been verified.",
+            "description" : "Users collected NFTs",
             "items" : {
               "type" : "object",
               "properties" : {
