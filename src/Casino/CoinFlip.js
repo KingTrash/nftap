@@ -14,6 +14,7 @@ export default function CoinFlip(){
 
     let [result, setResult] = useState("")
     const [counter, setCounter] = useState(0)
+    const [userMoney, setMoney] = useState(0)
     const [isPepe, setPepe] = useState(true)
     const [stopGif, setSG] = useState(true)
     const [win, setWin] = useState(false)
@@ -51,12 +52,16 @@ export default function CoinFlip(){
 
         setDB(true)
          await sleep(1000)
-
+            setCounter(counter+1)
         if (amount > user.balance){
         }else{
             if (selected === result){
                 setWin(true)
-                user.balance = user.balance+amount
+                const temp = user.balance + Number(amount)
+                user.balance = temp
+                await sleep(1500)
+                setMoney(user.balance)
+                setCounter(counter+1)
             }else{
 
                 setWin(false)
@@ -68,14 +73,14 @@ export default function CoinFlip(){
 
     useEffect(async () => {
 
-        await sleep(2500)
-        setDB(false)
 
+        setMoney(user.balance)
         const ges = user.balance - amount
         if (ges < 0){
             setAmount(0)
         }
-
+        await sleep(2500)
+        setDB(false)
 
 
     },[counter, amount, user.balance])
@@ -93,7 +98,7 @@ export default function CoinFlip(){
                         setDB(false)
 
                     }}/>
-                    <pre>Balance: €{user.balance - amount}</pre>
+                    <pre>Balance: €{userMoney - amount}</pre>
                     <Grid.Row>
                         <img style={{height:200}} onClick={e=>{setSelected("pepe")}} src={"https://github.com/KingTrash/NFT-images/blob/main/pepe-end.png?raw=true"}/>
                         <img style={{height:200}} onClick={e=>{setSelected("amongus")}}src={"https://github.com/KingTrash/NFT-images/blob/main/amongus-end.png?raw=true"}/>
