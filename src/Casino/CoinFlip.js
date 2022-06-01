@@ -78,7 +78,7 @@ export default function CoinFlip(){
 
 
 
-    },[counter, amount])
+    },[counter, amount, user.balance])
 
 
     return (
@@ -91,9 +91,6 @@ export default function CoinFlip(){
                     <Input placeholder={"Amount"}  onChange={(event) => {
                         setAmount(event.target.value)
                         setDB(false)
-                        if (!/[0-9]/.test(event.target.value)) {
-                            event.preventDefault();
-                        }
 
                     }}/>
                     <pre>Balance: €{user.balance - amount}</pre>
