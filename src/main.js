@@ -7,11 +7,12 @@ function createWindow () {
     const mainWindow = new BrowserWindow({
         width: 800,
         height: 600,
+        icon: path.join(__dirname, "logo.ico"),
         fullscreen: true,
         autoHideMenuBar: true,
         webPreferences: {
             preload: path.join(__dirname, 'preload.js')
-        }
+        },
     })
 
     // and load the index.html of the app.

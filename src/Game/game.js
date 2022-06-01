@@ -5,7 +5,6 @@ import {Scrollbars} from "react-custom-scrollbars";
 import Canvas, {koords, isScreening} from "./Canvas";
 import {UserContext} from "../UserContext";
 import {Link} from "react-router-dom";
-import {motion} from "framer-motion";
 
 
 export let resetCanvas = false

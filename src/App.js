@@ -4,9 +4,6 @@ import Nftap from "./Navbar/ExmplNav";
 import {BrowserRouter as Router} from "react-router-dom";
 import React, {useEffect, useMemo, useState} from "react";
 import { UserContext } from "./UserContext";
-import {Provider} from "react-redux";
-import Home from "./Home";
-import {Image} from "react-konva";
 
 function App() {
     const [user, setUser] = useState(null);

@@ -1,7 +1,9 @@
 import SwaggerUI from "swagger-ui-react"
 import "swagger-ui-react/swagger-ui.css"
 import {Scrollbars} from "react-custom-scrollbars";
+import React, { Component }  from 'react';
 import './api.css'
+
 export default function ApiDoc () {
     return(
         <div className={"center"}>
