@@ -1,8 +1,8 @@
 import React, {useContext, useEffect, useState} from "react";
 import axios from "axios";
-import {Button, Card, Grid, Header, Icon, Image, Modal, Progress, Segment} from "semantic-ui-react";
+import {Button, Card, Grid, Icon, Image, Modal, Progress, Segment} from "semantic-ui-react";
 import {Scrollbars} from "react-custom-scrollbars";
-import Canvas, {koords, isScreening} from "./Canvas";
+import Canvas, {koords} from "./Canvas";
 import {UserContext} from "../UserContext";
 import {Link} from "react-router-dom";
 
@@ -11,7 +11,7 @@ export let resetCanvas = false
 export default function Game () {
 
 
-    const {user, setUser} = useContext(UserContext)
+    const {user} = useContext(UserContext)
 
     useEffect(() => {
 
@@ -150,13 +150,13 @@ export default function Game () {
             <Grid columns={2} divided >
                 <Grid.Row stretched>
                     <Grid.Column>
-                        <Scrollbars style={{width: 500, height: 300}}autoHeightMin={100} autoHeightMax={700}>
+                        <Scrollbars style={{width: 500, height: 300}} autoHeightMin={100} autoHeightMax={700}>
                     <Segment>
                             <Card.Group itemsPerRow={2}>
-                            {nftArray.map((child,i) => {
+                            {nftArray.map((child) => {
                                 return (
                                     <div style={{width: 150, padding: 5, margin: 3}}>
-                                    <Card inverted fluid onClick={event => {
+                                    <Card inverted fluid onClick={() => {
                                         setSN(child)
                                         setCheck(true)
                                         setPro(0)
