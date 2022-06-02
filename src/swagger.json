@@ -16,7 +16,7 @@
     "/users" : {
       "parameters" : [ ],
       "get" : {
-        "summary" : "Get User Info by User ID",
+        "summary" : "If a NFT is sold, updadates the current balance. ",
         "tags" : [ ],
         "responses" : {
           "200" : {
@@ -104,26 +104,26 @@
       },
       "parameters" : [ ]
     },
-    "/users/addBalance/:id" : {
-      "parameters" : [ ],
-      "put" : {
-        "summary" : "Updates User balance",
-        "tags" : [ ],
-        "responses" : {
-          "200" : {
-            "description" : "Users balance has been updated!"
+    "/users/addBalance/:id": {
+      "parameters": [],
+      "put": {
+        "summary": "Your GET endpoint",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "Users balance has been updated!"
           }
         },
-        "operationId" : "get-users-addBalance-userid",
-        "description" : "If a NFT is sold, updadates the current balance. ",
-        "requestBody" : {
-          "content" : {
-            "application/json" : {
-              "schema" : {
-                "type" : "object",
-                "properties" : {
-                  "balance" : {
-                    "type" : "integer"
+        "operationId": "get-users-addBalance-userid",
+        "description": "If a NFT is sold, updadates the current balance. ",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "balance": {
+                    "type": "integer"
                   }
                 }
               }
