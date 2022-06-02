@@ -9,7 +9,7 @@ export default function CoinFlip(){
 
     const [selected,setSelected] = useState("")
 
-    const {user} = useContext(UserContext)
+    const {user, setUser} = useContext(UserContext)
 
     let [result, setResult] = useState("")
     const [counter, setCounter] = useState(0)
@@ -94,8 +94,8 @@ export default function CoinFlip(){
                     }}/>
                     <pre>Balance: €{userMoney - amount}</pre>
                     <Grid.Row>
-                        <img style={{height:200}} onClick={setSelected("pepe")} src={"https://github.com/KingTrash/NFT-images/blob/main/pepe-end.png?raw=true"} alt={"PEPE"}/>
-                        <img style={{height:200}} onClick={setSelected("amongus")} src={"https://github.com/KingTrash/NFT-images/blob/main/amongus-end.png?raw=true"} alt={"AMONGUS"}/>
+                        <img style={{height:200}} onClick={()=>setSelected("pepe")} src={"https://github.com/KingTrash/NFT-images/blob/main/pepe-end.png?raw=true"} alt={"PEPE"}/>
+                        <img style={{height:200}} onClick={()=> setSelected("amongus")} src={"https://github.com/KingTrash/NFT-images/blob/main/amongus-end.png?raw=true"} alt={"AMONGUS"}/>
                     </Grid.Row>
                     <Grid.Row>
                     </Grid.Row>
@@ -127,16 +127,12 @@ export default function CoinFlip(){
                             }
                         </div>
                     )}
-
                 </Grid.Column>
             </Grid>
                   <div>
                   {win ? (<h1>YOU WON</h1>) : (<h1>MAYBE NEXT TIME</h1>)}
                   </div>
         </div>
-
-
-
     )
 
 }
