@@ -129,7 +129,16 @@
               }
             }
           }
-        }
+        },
+        "parameters": [
+          {
+            "schema": {
+              "type": "number"
+            },
+            "in": "query",
+            "name": ":id"
+          }
+        ]
       }
     },
     "/users/addNFT/:id" : {
