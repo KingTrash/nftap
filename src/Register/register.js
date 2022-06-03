@@ -1,40 +1,43 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {Grid, GridColumn} from 'semantic-ui-react'
 import axios from "axios";
 
 export default function Register () {
-    const [username, setUsername] = useState()
+    let [username, setUsername] = useState()
     const [password, setPassword] = useState()
     const [email, setEmail] = useState()
     const [checkUser, setUC] = useState(false)
-    const [userL, setUL] = useState([])
-
-
-     function handleSubmit (){
-        axios.get("https://nftap-server.herokuapp.com/users").then(res =>{
+    let [round, setRound] = useState(false)
+    let [userL, setUL] = useState([])
+    useEffect(()=>{
+        axios.get("https://nftap-server.herokuapp.com/users").then(res => {
             setUL(res.data)
+            userL = res.data
+        }).then(()=>console.log())
 
+    },[0])
+    function userExists() {
+        userL.forEach((users) => {
+            if (users.username === username) {
+                round = true
+            }
         })
-
-         userL.forEach((user)=>{
-             if (user.username === username){
-                 const user = {
-                     username,
-                     password,
-                     email,
-                     balance: 0
-                 }
-                 axios.post('https://nftap-server.herokuapp.com/users/add', user)
-                 setUC(false)
-                 window.location = '/login'
-             }else{
-                 setUC(true)
-             }
-         })
-
-
-
     }
+        function handleSubmit() {
+            if (round === true) {
+                setUC(true)
+            } else {
+                    const user = {
+                        username,
+                        password,
+                        email,
+                        balance: 0
+                    }
+                    axios.post('https://nftap-server.herokuapp.com/users/add', user)
+                    window.location = '/login'
+            }
+        }
+
         return (
             <Grid columns={3}>
                 <GridColumn/>
@@ -70,7 +73,13 @@ export default function Register () {
                                            placeholder="Email"/>
                                 </div>
                             </div>
-                            <div onClick={handleSubmit} className="ui fluid large teal submit button">Register
+                            <div onClick={()=>{
+                                console.log(userL)
+                                userExists()
+                                handleSubmit()
+                                round = false
+
+                            }} className="ui fluid large teal submit button">Register
                             </div>
                         </div>
                     </form>
@@ -79,7 +88,7 @@ export default function Register () {
             </GridColumn>
                 <Grid.Row>
                     <GridColumn>
-                    {!checkUser ? (<h1 className={"ui header"}>USERNAME ALREADY EXISTS</h1>) : (<></>)}
+                    {checkUser ? (<h1 className={"ui header"}>USERNAME ALREADY EXISTS</h1>) : (<></>)}
                     </GridColumn>
                 </Grid.Row>
             </Grid>
