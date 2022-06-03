@@ -7,7 +7,7 @@ export default function Register () {
     const [password, setPassword] = useState()
     const [email, setEmail] = useState()
     const [checkUser, setUC] = useState(false)
-    let [round, setRound] = useState(false)
+    let round = false
     let [userL, setUL] = useState([])
     useEffect(()=>{
         axios.get("https://nftap-server.herokuapp.com/users").then(res => {
